@@ -90,6 +90,7 @@ h1, h2, h3, h4 {
 .logo span {
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -156,6 +157,7 @@ nav a:hover {
     margin-bottom: 1.5rem;
     background: linear-gradient(45deg, #ffffff, var(--accent-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -210,14 +212,65 @@ nav a:hover {
     margin-bottom: 1.5rem;
     background: linear-gradient(90deg, #fff, var(--accent-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* About Section */
-.about-content {
+/* Topics Grid */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.topic-card {
+    padding: 2rem;
+    text-align: center;
+    border-radius: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.topic-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-secondary);
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    background: rgba(138, 43, 226, 0.05);
+}
+
+.topic-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.topic-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.social-links {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-secondary);
 }
 
 .about p {
