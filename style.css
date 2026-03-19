@@ -11,6 +11,18 @@
     --font-body: 'Inter', sans-serif;
 }
 
+.email-accent {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.email-accent:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
 * {
     margin: 0;
     padding: 0;
