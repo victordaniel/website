@@ -34,11 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
             marquee.appendChild(clone);
         });
 
-        // Ensure seamless looping by dynamically adjusting animation based on real width
-        const totalKids = marquee.children.length; // Will be 6 with duplicates
     }
 
-    // 3. Navbar logic (glass effect enhancement on scroll)
+    // 3. Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mainNav.classList.toggle('open');
+    });
+
+    // Close nav when a link is clicked
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mainNav.classList.remove('open');
+        });
+    });
+
+    // 4. Navbar logic (glass effect enhancement on scroll)
     const header = document.querySelector('.glass-nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {

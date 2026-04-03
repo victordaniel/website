@@ -533,19 +533,85 @@ nav a:hover {
     display: block;
 }
 
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(11, 12, 16, 0.97);
+        border-top: 1px solid var(--glass-border);
+        padding: 1.5rem 2rem;
+        gap: 0;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--glass-border);
+        font-size: 1.1rem;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
     .input-group {
         flex-direction: column;
     }
+
     .talk-card {
         width: 300px;
         height: 200px;
     }
+
     .hero h1 {
         font-size: 2.5rem;
-    }
-    nav {
-        display: none; /* simple mobile state */
     }
 }
 
