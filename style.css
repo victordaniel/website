@@ -507,6 +507,32 @@ nav a:hover {
     align-self: flex-start;
 }
 
+.form-success {
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid var(--accent-secondary);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    color: var(--accent-secondary);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.form-error {
+    background: rgba(255, 80, 80, 0.08);
+    border: 1px solid rgba(255, 80, 80, 0.4);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    color: #ff6b6b;
+    margin-top: 1rem;
+}
+
+.field-error {
+    font-size: 0.8rem;
+    color: #ff6b6b;
+    margin-top: 0.2rem;
+    display: block;
+}
+
 @media (max-width: 768px) {
     .input-group {
         flex-direction: column;
