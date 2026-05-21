@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research Profile — Victor Daniel Gera | Anurag University</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════
+       TICKER BAR
+    ═══════════════════════════════════════════ */
+    .ticker-bar {
+      background: #BE1E2D;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      height: 34px;
+      overflow: hidden;
+      position: relative;
+      z-index: 100;
+    }
+    .ticker-inner {
+      overflow: hidden;
+      white-space: nowrap;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-track {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: ticker-scroll 50s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item { padding: 0 32px; flex-shrink: 0; }
+    .ticker-sep { color: rgba(255,255,255,0.45); font-size: 6px; flex-shrink: 0; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
+    .nav {
+      background: #fff;
+      border-bottom: 3px solid #BE1E2D;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    }
+    .nav-brand { margin-right: auto; line-height: 1.2; }
+    .nav-brand .brand-main {
+      font-size: 20px;
+      font-weight: 800;
+      color: #BE1E2D;
+      letter-spacing: -0.2px;
+      display: block;
+    }
+    .nav-brand .brand-sub {
+      font-size: 10.5px;
+      color: #888;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; list-style: none; gap: 0; }
+    .nav-links li a {
+      display: block;
+      padding: 0 15px;
+      height: 68px;
+      line-height: 68px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #444;
+      border-bottom: 3px solid transparent;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active { color: #BE1E2D; border-bottom-color: #BE1E2D; }
+
+    /* ═══════════════════════════════════════════
+       HERO — 100vh FULL VIEWPORT
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      background: #0d0d0d;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      opacity: 0.38;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(190,30,45,0.80) 0%,
+        rgba(10,10,20,0.72) 55%,
+        rgba(0,0,0,0.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 48px;
+      max-width: 920px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.32);
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 7px 20px;
+      border-radius: 2px;
+      margin-bottom: 30px;
+    }
+    .hero-quote {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 34px;
+      text-shadow: 0 3px 48px rgba(0,0,0,0.55);
+    }
+    .hero-name {
+      display: inline-block;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      background: rgba(190,30,45,0.75);
+      padding: 4px 18px 6px;
+      border-radius: 2px;
+    }
+    .hero-title-line {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .hero-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 2px;
+    }
+    .hero-chip.red { background: #BE1E2D; border-color: #BE1E2D; color: #fff; }
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.55);
+      font-size: 30px;
+      cursor: pointer;
+      animation: bounce-down 2.2s ease infinite;
+      user-select: none;
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+      50%       { transform: translateX(-50%) translateY(10px); opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════
+       PHOTO GALLERY — immediately after hero
+    ═══════════════════════════════════════════ */
+    .gallery-section { background: #111; }
+    .gallery-section-header {
+      text-align: center;
+      padding: 52px 24px 36px;
+    }
+    .gallery-section-header .section-label { color: rgba(255,255,255,0.5); }
+    .gallery-section-heading {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .gallery-main-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-rows: 290px 290px;
+      gap: 3px;
+    }
+    .g-card--hero { grid-row: span 2; }
+    .g-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #0d0d0d;
+    }
+    .g-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.45s ease, opacity 0.3s ease;
+      opacity: 0.82;
+    }
+    .g-card:hover img { transform: scale(1.06); opacity: 1; }
+    .g-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.08) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .g-card:hover .g-card-overlay { opacity: 1; }
+    .g-card--hero .g-card-overlay {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(190,30,45,0.88) 0%, rgba(0,0,0,0.05) 55%, transparent 100%);
+    }
+    .g-card-badge {
+      display: inline-block;
+      background: #BE1E2D;
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+    .g-card-overlay h3 {
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .g-card--hero .g-card-overlay h3 { font-size: 22px; }
+    .g-card-overlay p { color: rgba(255,255,255,0.75); font-size: 12px; line-height: 1.4; }
+
+    /* ═══════════════════════════════════════════
+       STATS STRIP — animated counters
+    ═══════════════════════════════════════════ */
+    .stats-strip {
+      background: #fff;
+      border-top: 4px solid #BE1E2D;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .stats-strip-inner {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .stat-block {
+      flex: 1;
+      padding: 38px 20px;
+      text-align: center;
+      border-right: 1px solid #e8e8e8;
+    }
+    .stat-block:hover { background: #fdf3f4; }
+    .stat-block:last-child { border-right: none; }
+    .s-num {
+      font-size: 44px;
+      font-weight: 900;
+      color: #BE1E2D;
+      line-height: 1;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .s-label {
+      font-size: 10.5px;
+      color: #888;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SHARED CONTAINER & SECTION
+    ═══════════════════════════════════════════ */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 60px 0; }
+    .section-alt { background: #f8f8f8; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #BE1E2D;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: #666;
+      max-width: 640px;
+      line-height: 1.75;
+      margin-bottom: 38px;
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+    .about-photo {
+      width: 210px;
+      height: 268px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 4px;
+      border: 3px solid #BE1E2D;
+      box-shadow: 6px 6px 0 rgba(190,30,45,0.14);
+      display: block;
+    }
+    .about-text p { font-size: 14px; color: #444; line-height: 1.9; margin-bottom: 16px; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; }
+    .cred-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-left: 3px solid #BE1E2D;
+      border-radius: 2px;
+      padding: 14px 16px;
+    }
+    .cred-card.gold  { border-left-color: #d97706; }
+    .cred-card.green { border-left-color: #059669; }
+    .cred-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #BE1E2D; margin-bottom: 3px; }
+    .cred-card.gold  .cred-label { color: #d97706; }
+    .cred-card.green .cred-label { color: #059669; }
+    .cred-title { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.35; }
+    .cred-sub   { font-size: 12px; color: #666; margin-top: 3px; line-height: 1.4; }
+
+    /* ═══════════════════════════════════════════
+       RESEARCH AREAS — ALTERNATING BLOCKS
+    ═══════════════════════════════════════════ */
+    .rblock {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+    .rblock + .rblock { border-top: 1px solid #e8e8e8; }
+    .rblock--alt .rblock-img  { order: 2; }
+    .rblock--alt .rblock-text { order: 1; background: #f8f8f8; }
+    .rblock-img {
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .rblock-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .rblock:hover .rblock-img img { transform: scale(1.04); }
+    .rblock-text {
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+    .rblock-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: #BE1E2D;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .rblock-heading {
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+    }
+    .rblock-body { font-size: 14.5px; color: #555; line-height: 1.88; margin-bottom: 28px; }
+    .rblock-stat { display: flex; align-items: baseline; gap: 12px; border-left: 3px solid #BE1E2D; padding-left: 16px; }
+    .rblock-stat-num   { font-size: 30px; font-weight: 900; color: #BE1E2D; line-height: 1; }
+    .rblock-stat-label { font-size: 12.5px; color: #888; font-weight: 500; line-height: 1.4; }
+
+    /* ═══════════════════════════════════════════
+       PUBLICATIONS
+    ═══════════════════════════════════════════ */
+    .pub-divider {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      background: #BE1E2D;
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin: 6px 0 14px;
+    }
+    .pub-divider.amber { background: #d97706; }
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
+    .pub-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 3px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .pub-num {
+      min-width: 32px;
+      height: 32px;
+      background: #BE1E2D;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pub-body { flex: 1; }
+    .pub-title { font-size: 14px; font-weight: 700; color: #1a1a1a; line-height: 1.4; margin-bottom: 4px; }
+    .pub-title a { color: #BE1E2D; }
+    .pub-authors { font-size: 12px; color: #555; margin-bottom: 4px; line-height: 1.45; }
+    .pub-venue  { font-size: 12px; color: #777; font-style: italic; }
+    .pub-meta   { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .pill { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .pill-red   { background: #fde8e8; color: #BE1E2D; }
+    .pill-gold  { background: #fffbeb; color: #92400e; }
+    .pill-green { background: #ecfdf5; color: #065f46; }
+    .pill-blue  { background: #eff6ff; color: #1d4ed8; }
+
+    /* ═══════════════════════════════════════════
+       TALKS TABLE
+    ═══════════════════════════════════════════ */
+    .talks-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .talks-table thead tr { background: #1a1a1a; color: #fff; }
+    .talks-table thead th { padding: 10px 14px; text-align: left; font-size: 11.5px; font-weight: 600; letter-spacing: 0.3px; }
+    .talks-table tbody tr:nth-child(even) { background: #fafafa; }
+    .talks-table tbody td { padding: 10px 14px; border-bottom: 1px solid #ebebeb; vertical-align: top; line-height: 1.5; }
+    .talk-date { font-size: 11px; color: #BE1E2D; font-weight: 600; margin-top: 2px; }
+
+    /* ═══════════════════════════════════════════
+       AWARDS
+    ═══════════════════════════════════════════ */
+    .award-row { display: grid; grid-template-columns: 2fr 1fr; gap: 0; align-items: stretch; border-radius: 4px; overflow: hidden; border: 1px solid #e0e0e0; }
+    .award-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* ═══════════════════════════════════════════
+       RED CTA
+    ═══════════════════════════════════════════ */
+    .cta-section { background: #BE1E2D; color: #fff; padding: 60px 0; }
+    .cta-inner  { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .cta-label  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+    .cta-heading { font-size: 30px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+    .cta-body { font-size: 15px; line-height: 1.88; max-width: 800px; color: rgba(255,255,255,0.92); }
+    .cta-body strong { color: #fff; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      background: #111;
+      color: rgba(255,255,255,0.55);
+      padding: 34px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+    }
+    .footer .f-brand { color: #fff; font-size: 14px; font-weight: 700; display: block; margin-bottom: 4px; }
+    .footer .f-links { display: flex; gap: 20px; }
+    .footer .f-links a { color: rgba(255,255,255,0.6); }
+    .footer .f-links a:hover { color: #fff; }
+
+    /* ═══════════════════════════════════════════
+       LIGHTBOX
+    ═══════════════════════════════════════════ */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 92vw; max-height: 90vh; border-radius: 3px; object-fit: contain; display: block; }
+    #lb-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 34px; font-weight: 300; cursor: pointer; line-height: 1; user-select: none; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .nav { padding: 0 20px; }
+      .hero-content { padding: 0 24px; }
+      .hero-quote { letter-spacing: -0.5px; }
+      .gallery-main-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 200px 200px 200px;
+      }
+      .g-card--hero { grid-column: span 2; grid-row: span 1; }
+      .stats-strip-inner { flex-wrap: wrap; }
+      .stat-block { flex: 0 0 33.33%; border-bottom: 1px solid #e8e8e8; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { width: 100%; height: 220px; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .rblock { grid-template-columns: 1fr; }
+      .rblock--alt .rblock-img, .rblock--alt .rblock-text { order: unset; }
+      .rblock-img { height: 260px; }
+      .rblock-text { padding: 36px 24px; }
+      .award-row { flex-direction: column; }
+      .award-row { grid-template-columns: 1fr; }
+      .award-img { height: 260px; }
+    }
+
+    @media print {
+      .ticker-bar, .nav, .gallery-section, .hero-scroll-cue, .footer { display: none; }
+      .hero { height: 220px !important; min-height: unset; }
+      .rblock { grid-template-columns: 1fr; }
+      .rblock-img { height: 180px; }
+      body { font-size: 12px; }
+      #lightbox { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TICKER BAR ── -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-item">NeurIPS 2026 Submission &mdash; GONO Optimisation Framework</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">SERB Govt. of India &mdash; Funded Researcher (JRF &amp; SRF)</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">39 Total Citations &nbsp;&bull;&nbsp; h-index: 4</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">4 Peer-Reviewed Publications &nbsp;&bull;&nbsp; 104 GitHub Repositories</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">Invited Resource Person &mdash; NITs &middot; Central Universities &middot; IIT FDPs</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">PhD Thesis Submitted &mdash; NITK, Surathkal</span>
+      <span class="ticker-sep">&#9679;</span>
+      <span class="ticker-item">21 Years in Engineering Education &nbsp;&bull;&nbsp; Dept. of Artificial Intelligence, Anurag University</span>
+      <span class="ticker-sep">&#9679;</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <span class="brand-main">Victor Daniel Gera</span>
+    <span class="brand-sub">Anurag University &nbsp;&bull;&nbsp; Dept. of Artificial Intelligence</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#talks">Talks Delivered</a></li>
+    <li><a href="#awards">Awards</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO — 100vh ── -->
+<div class="hero" id="hero">
+  <img src="https://victordaniel.github.io/website/assets/banner.jpeg"
+       class="hero-img" alt="Victor Daniel Gera — Faculty, Anurag University"
+       onerror="this.style.opacity='0'"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">AI Researcher &nbsp;&middot;&nbsp; Tech Speaker &nbsp;&middot;&nbsp; Hyderabad, India</span>
+    <h1 class="hero-quote">"Building the science<br/>that builds what's next."</h1>
+    <span class="hero-name">Victor Daniel Gera</span>
+    <span class="hero-title-line">
+      Assistant Professor (Research Track) &nbsp;&bull;&nbsp; Research Scholar, NITK Surathkal<br/>
+      Department of Artificial Intelligence &nbsp;&bull;&nbsp; 21 Years in Engineering Education
+    </span>
+    <div class="hero-chips">
+      <span class="hero-chip red">SERB Govt. of India &mdash; JRF &amp; SRF</span>
+      <span class="hero-chip">GNN &amp; Anomaly Detection</span>
+      <span class="hero-chip">NeurIPS 2026 Submission</span>
+      <span class="hero-chip">Invited RP &mdash; NITs &middot; CUs &middot; IIT FDPs</span>
+    </div>
+  </div>
+  <div class="hero-scroll-cue"
+       onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">&#8595;</div>
+</div>
+
+<!-- ── PHOTO GALLERY — immediately after hero ── -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-section-header">
+    <span class="section-label">On the Ground</span>
+    <h2 class="gallery-section-heading">Across India &mdash; As Resource Person &amp; Invited Expert</h2>
+  </div>
+  <div class="gallery-main-grid">
+
+    <!-- HERO CARD — spans 2 rows -->
+    <div class="g-card g-card--hero"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/banner.jpeg','Victor Daniel — Integrating AI in Education, Meru International School, Hyderabad')">
+      <img src="https://victordaniel.github.io/website/assets/banner.jpeg"
+           alt="Meru International School — AI in Education"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>Integrating AI in Education</h3>
+        <p>Meru International School, Tellapur, Hyderabad</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/2.jpeg','One-Week Deep Learning Training — VVCE, Mysuru')">
+      <img src="https://victordaniel.github.io/website/assets/2.jpeg" alt="One-Week DL Training, VVCE Mysuru"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>One-Week DL Training &mdash; VVCE, Mysuru</h3>
+        <p>Oct 27&ndash;Nov 1, 2025 &middot; CNNs, RNNs, PyTorch</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/hcu.jpeg','DAGs in Airflow — University of Hyderabad')">
+      <img src="https://victordaniel.github.io/website/assets/hcu.jpeg" alt="DAGs in Airflow — HCU"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>DAGs in Airflow &mdash; Univ. of Hyderabad</h3>
+        <p>Int'l Conference &middot; Hyderabad Central University</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/Session@nitpy.jpg','NIT Puducherry — Guest Lecture 2022')">
+      <img src="https://victordaniel.github.io/website/assets/Session@nitpy.jpg" alt="NIT Puducherry — Guest Lecture"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>NIT Puducherry &mdash; GNN Guest Lecture</h3>
+        <p>Anomaly Detection using GNNs &middot; 2022</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('ICTIEE-2024.jpg','ICTIEE 2024 — IUCEE, Hubli, Karnataka')">
+      <img src="ICTIEE-2024.jpg" alt="ICTIEE 2024 — IUCEE Hubli Karnataka"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>ICTIEE 2024 &mdash; IUCEE, Hubli</h3>
+        <p>AI Tools for Engineering Research &amp; Education</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/github.jpeg','GitHub Campus Expert Programme')">
+      <img src="https://victordaniel.github.io/website/assets/github.jpeg" alt="GitHub Campus Expert Event"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>GitHub Campus Expert Event</h3>
+        <p>Open Source &amp; Developer Culture</p>
+      </div>
+    </div>
+
+    <div class="g-card"
+         onclick="openLightbox('https://victordaniel.github.io/website/assets/10.jpeg','Meru International School — AI in Education')">
+      <img src="https://victordaniel.github.io/website/assets/10.jpeg" alt="Meru International School"/>
+      <div class="g-card-overlay">
+        <span class="g-card-badge">Resource Person</span>
+        <h3>Meru International School</h3>
+        <p>Integrating AI in Education &middot; K-12 educators</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ANIMATED STATS STRIP ── -->
+<div class="stats-strip" id="stats">
+  <div class="stats-strip-inner">
+    <div class="stat-block">
+      <div class="s-num" data-target="39" data-suffix="">0</div>
+      <div class="s-label">Total Citations</div>
+    </div>
+    <div class="stat-block">
+      <div class="s-num" data-target="4" data-suffix="">0</div>
+      <div class="s-label">h-index</div>
+    </div>
+    <div class="stat-block">
+      <div class="s-num" data-target="4" data-suffix="">0</div>
+      <div class="s-label">Publications</div>
+    </div>
+    <div class="stat-block">
+      <div class="s-num" data-target="104" data-suffix="">0</div>
+      <div class="s-label">GitHub Repos</div>
+    </div>
+    <div class="stat-block">
+      <div class="s-num" data-target="21" data-suffix="+">0</div>
+      <div class="s-label">Years Teaching</div>
+    </div>
+    <div class="stat-block">
+      <div class="s-num" data-target="10" data-suffix="+">0</div>
+      <div class="s-label">Institutions as RP</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<div id="about" class="section">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-heading">Research Statement</h2>
+    <div class="about-grid">
+      <img src="Me.jpeg" alt="Victor Daniel Gera" class="about-photo"
+           onerror="this.style.display='none'"/>
+      <div class="about-text">
+        <p>
+          My research is driven by a commitment to <strong>fundamental inquiry in deep learning</strong> — establishing not just what neural networks can do, but <em>why</em> they work, through a combination of formal theorems, supporting lemmas, and controlled empirical experiments. The clearest expression of this is my work on the <strong>GONO (Gradient Directional Consistency) Framework</strong>, currently submitted to <strong>NeurIPS 2026</strong> — one of the premier venues in machine learning. GONO interrogates whether the <em>direction</em> of gradient updates carries exploitable signal for improving neural network training — establishing this through formal theoretical analysis backed by systematic experimentation. This solo-authored work reflects the depth and independence of my research thinking.
+        </p>
+        <p>
+          My applied research has produced a coherent body of work in <strong>Graph Neural Networks for anomaly detection</strong> — including a GNN-based encoder for node and edge anomaly detection (<em>Electronics</em>, MDPI, 2023 — 11 citations), a multi-GNN attention fusion framework for fake news detection (<em>International Journal of Cognitive Computing in Engineering</em>, Elsevier, 2025), and a federated semi-supervised GNN for privacy-preserving Gestational Diabetes prediction (2026). My emerging frontier is <strong>fundamental LLM research</strong> — applying the same theorem-and-experiment methodology to open questions in LLM theory. I maintain 104 public GitHub repositories as a direct expression of my commitment to open, reproducible science.
+        </p>
+        <div class="cred-grid">
+          <div class="cred-card">
+            <div class="cred-label">Research Scholar</div>
+            <div class="cred-title">National Institute of Technology Karnataka (NITK), Surathkal</div>
+            <div class="cred-sub">Specialisation: Anomaly Detection using Graph Neural Networks</div>
+          </div>
+          <div class="cred-card gold">
+            <div class="cred-label">Govt. of India — SERB</div>
+            <div class="cred-title">Junior Research Fellow (JRF) &amp; Senior Research Fellow (SRF)</div>
+            <div class="cred-sub">Science &amp; Engineering Research Board (SERB), Govt. of India — at NITK</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-label">Faculty</div>
+            <div class="cred-title">Anurag University, Hyderabad</div>
+            <div class="cred-sub">Teaching UG &amp; PG — 21 years in Engineering Education</div>
+          </div>
+          <div class="cred-card green">
+            <div class="cred-label">Contact</div>
+            <div class="cred-title">victordanielai@anurag.edu.in</div>
+            <div class="cred-sub">github.com/victordaniel &nbsp;&bull;&nbsp; linkedin.com/in/victor-d-105ab28</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RESEARCH AREAS — ALTERNATING BLOCKS ── -->
+<div id="research">
+
+  <div class="rblock">
+    <div class="rblock-img">
+      <img src="https://victordaniel.github.io/website/assets/7.jpeg"
+           alt="Graph Neural Networks Research"/>
+    </div>
+    <div class="rblock-text">
+      <span class="rblock-eyebrow">Research Area 01</span>
+      <h2 class="rblock-heading">Graph Neural Networks &amp; Anomaly Detection</h2>
+      <p class="rblock-body">Designing GNN encoders and multi-attention fusion frameworks for node, edge, and subgraph-level anomaly detection in attributed and social networks. Published in <em>Electronics</em> (MDPI, SCIE) and <em>International Journal of Cognitive Computing in Engineering</em> (Elsevier, 2025). Work spans from graph clustering and GCN exploration through to multi-attention subgraph detection — a coherent, deepening research focus over multiple years.</p>
+      <div class="rblock-stat">
+        <span class="rblock-stat-num">11</span>
+        <span class="rblock-stat-label">Citations on the MDPI SCIE paper alone</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock rblock--alt">
+    <div class="rblock-img">
+      <img src="https://victordaniel.github.io/website/assets/Session@nitpy.jpg"
+           alt="Deep Learning Optimisation — NIT Puducherry Lecture"/>
+    </div>
+    <div class="rblock-text">
+      <span class="rblock-eyebrow">Research Area 02</span>
+      <h2 class="rblock-heading">Deep Learning Optimisation Theory</h2>
+      <p class="rblock-body">Formal theoretical investigation of gradient directional consistency as a complementary optimisation signal — the <strong>GONO Framework</strong>. Solo-authored. Submitted to <strong>NeurIPS 2026</strong>, the premier machine learning conference worldwide. Available on arXiv:2605.06575. The paper establishes the framework through formal theoretical analysis backed by systematic experimentation, contributing an original optimisation signal as a complement to conventional loss-based descent.</p>
+      <div class="rblock-stat">
+        <span class="rblock-stat-num">NeurIPS</span>
+        <span class="rblock-stat-label">2026 — premiere ML conference submission</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock">
+    <div class="rblock-img">
+      <img src="https://victordaniel.github.io/website/assets/hcu.jpeg"
+           alt="Federated Learning &amp; LLM Research"/>
+    </div>
+    <div class="rblock-text">
+      <span class="rblock-eyebrow">Research Area 03</span>
+      <h2 class="rblock-heading">Federated Learning &amp; LLM Fundamentals</h2>
+      <p class="rblock-body">Privacy-preserving semi-supervised GNNs with prototype-guided pseudo-labelling applied to Gestational Diabetes Mellitus prediction. Simultaneously, applying the same theorem-and-experiment methodology to open questions in <strong>Large Language Model theory</strong> — the mathematical basis of in-context learning, the geometry of attention mechanisms, and the conditions under which scale produces generalisation. A new frontier with the same rigorous approach.</p>
+      <div class="rblock-stat">
+        <span class="rblock-stat-num">104</span>
+        <span class="rblock-stat-label">Open GitHub repositories — fully reproducible science</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── PUBLICATIONS ── -->
+<div id="publications" class="section section-alt">
+  <div class="container">
+    <span class="section-label">Scholarly Work</span>
+    <h2 class="section-heading">Publications &amp; Preprints</h2>
+    <p class="section-sub">Peer-reviewed journals, conferences, book chapters, and preprints currently under review at top venues.</p>
+
+    <span class="pub-divider">&#9989; Published — Peer-Reviewed</span>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-num">1</div>
+        <div class="pub-body">
+          <div class="pub-title">A multi-Graph Neural Network attention fusion framework for emotion-aware subgraph anomaly detection in social media fake news propagation</div>
+          <div class="pub-authors">K. Chandrasekaran, M. Venkatesan, P. Prabhavathy, <strong>Victor Daniel Gera</strong></div>
+          <div class="pub-venue">International Journal of Cognitive Computing in Engineering, Elsevier, 2025</div>
+          <div class="pub-meta">
+            <span class="pill pill-green">Elsevier</span>
+            <span class="pill pill-blue">2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">2</div>
+        <div class="pub-body">
+          <div class="pub-title">AI Model Optimization Techniques</div>
+          <div class="pub-authors">M. Trupthi, G. Sridhar Reddy, A. Mallikarjuna Reddy, <strong>Victor Daniel Gera</strong></div>
+          <div class="pub-venue">Model Optimization Methods for Efficient and Edge AI (Book Chapter), 2025</div>
+          <div class="pub-meta">
+            <span class="pill pill-blue">Book Chapter &nbsp;|&nbsp; 2025</span>
+            <span class="pill pill-gold">5 Citations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">3</div>
+        <div class="pub-body">
+          <div class="pub-title">Robust Graph Neural-Network-Based Encoder for Node and Edge Deep Anomaly Detection on Attributed Networks</div>
+          <div class="pub-authors">K. Chandrasekaran, V. Meenakshi, P. Paneer, <strong>Victor Daniel Gera</strong></div>
+          <div class="pub-venue">Electronics 12(6), MDPI, 2023 — SCIE Indexed</div>
+          <div class="pub-meta">
+            <span class="pill pill-green">MDPI Electronics &nbsp;|&nbsp; SCIE</span>
+            <span class="pill pill-blue">2023</span>
+            <span class="pill pill-red">11 Citations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">4</div>
+        <div class="pub-body">
+          <div class="pub-title">Robust Graph Based Deep Anomaly Detection on Attributed Networks</div>
+          <div class="pub-authors">M. Venkatesan, <strong>Victor Daniel Gera</strong></div>
+          <div class="pub-venue">11th International Conference on Cloud Computing, Data Science &amp; Engineering (Confluence), 2021</div>
+          <div class="pub-meta">
+            <span class="pill pill-blue">Conference &nbsp;|&nbsp; 2021</span>
+            <span class="pill pill-gold">5 Citations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num">5</div>
+        <div class="pub-body">
+          <div class="pub-title">Initial Centroids for K-Means Using Nearest Neighbors and Feature Means</div>
+          <div class="pub-authors">Muddana A. Lakshmi, <strong>Victor Daniel Gera</strong></div>
+          <div class="pub-venue">Advances in Intelligent Systems and Computing, Vol. 900, Springer, 2019</div>
+          <div class="pub-meta">
+            <span class="pill pill-green">Springer AISC</span>
+            <span class="pill pill-blue">2019</span>
+            <span class="pill pill-red">18 Citations &#128293;</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <span class="pub-divider amber" style="margin-top:28px;">&#128336; Preprints &mdash; Under Review</span>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-num" style="background:#d97706;">1</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            <a href="https://arxiv.org/abs/2605.06575" target="_blank">Directional Consistency as a Complementary Optimization Signal: The GONO Framework &#8599;</a>
+          </div>
+          <div class="pub-authors">Victor Daniel Gera &nbsp;<em>(Solo Authored)</em></div>
+          <div class="pub-venue">arXiv:2605.06575 &nbsp;|&nbsp; May 7, 2026 &nbsp;|&nbsp; cs.LG, cs.AI</div>
+          <div class="pub-meta">
+            <span class="pill pill-red">&#11088; Submitted: NeurIPS 2026</span>
+            <span class="pill pill-blue">Solo Author</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num" style="background:#d97706;">2</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            <a href="https://arxiv.org/abs/2605.01810" target="_blank">Federated Semi-Supervised Graph Neural Networks with Prototype-Guided Pseudo-Labeling for Privacy-Preserving Gestational Diabetes Mellitus Prediction &#8599;</a>
+          </div>
+          <div class="pub-authors">G. Victor Daniel, A. Mallikarjuna Reddy, Uday Kumar Addanki, Sridhar Reddy Gogu, Sravanth Kumar Ramakuri</div>
+          <div class="pub-venue">arXiv:2605.01810 &nbsp;|&nbsp; May 3, 2026</div>
+          <div class="pub-meta">
+            <span class="pill pill-gold">Under Review</span>
+            <span class="pill pill-blue">2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-num" style="background:#d97706;">3</div>
+        <div class="pub-body">
+          <div class="pub-title">Recent Progress on Anomaly Detection in Social Networks using Graph Neural Networks</div>
+          <div class="pub-authors">K. Chandrasekaran, M. Venkatesan</div>
+          <div class="pub-venue">Survey &nbsp;|&nbsp; Authorea, 2023</div>
+          <div class="pub-meta">
+            <span class="pill pill-gold">Preprint</span>
+            <span class="pill pill-blue">2023</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:12px;color:#999;margin-top:16px;">Source: <a href="https://www.mdpi.com/2079-9292/12/6/1501" target="_blank" style="color:#BE1E2D;">Google Scholar Profile &#8599;</a> &nbsp;&mdash;&nbsp; Total Citations: 39 &nbsp;|&nbsp; h-index: 4</p>
+  </div>
+</div>
+
+<!-- ── TALKS DELIVERED ── -->
+<div id="talks" class="section">
+  <div class="container">
+    <span class="section-label">Talks Delivered</span>
+    <h2 class="section-heading">Talks Delivered &amp; Resource Person Engagements</h2>
+    <p class="section-sub">Invited as domain expert at NITs, Central Universities, IIT FDPs, and international conferences across 6 states.</p>
+
+    <table class="talks-table">
+      <thead>
+        <tr>
+          <th>Talk / Training / Event</th>
+          <th>Venue &amp; Location</th>
+          <th style="width:130px;">Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>AI Powered Intelligent Voice &amp; Text Application Development</strong>
+            <div class="talk-date">IIT Roorkee FDP &mdash; 19 June 2025</div>
+          </td>
+          <td>Anurag University, Hyderabad</td>
+          <td><span class="pill pill-red">FDP Session</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>One-Week Hands-On Deep Learning Training</strong>
+            <div style="font-size:11.5px;color:#666;">CNNs, RNNs, Autoencoders, Transfer Learning, PyTorch</div>
+            <div class="talk-date">Oct 27 &ndash; Nov 1, 2025</div>
+          </td>
+          <td>VVIT &mdash; Mysore, Karnataka</td>
+          <td><span class="pill pill-blue">1-Week Training</span></td>
+        </tr>
+        <tr>
+          <td><strong>Three-Day Hands-On Deep Learning &amp; Applications</strong></td>
+          <td>Vidyavardhaka College of Engineering, Mysore, Karnataka</td>
+          <td><span class="pill pill-blue">3-Day Training</span></td>
+        </tr>
+        <tr>
+          <td><strong>Two-Day Hands-On Deep Learning Training</strong></td>
+          <td>Chalapathi Institute of Engineering &amp; Technology, Guntur, AP</td>
+          <td><span class="pill pill-blue">2-Day Training</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>AI Tools for Innovation Validation</strong>
+            <div class="talk-date">12 May 2025</div>
+          </td>
+          <td>Anurag University, Hyderabad</td>
+          <td><span class="pill pill-red">Session</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>AI for Drug Discovery</strong>
+            <div class="talk-date">29 March 2025</div>
+          </td>
+          <td>School of Pharmacy, Anurag University</td>
+          <td><span class="pill pill-red">Hands-On Session</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>AI Tools for Engineering Research &amp; Education</strong>
+            <div style="font-size:11.5px;color:#666;">ICTIEE &mdash; Int'l Conference on Transformations in Engineering Education</div>
+          </td>
+          <td>IUCEE &mdash; Hubli, Karnataka</td>
+          <td><span class="pill pill-gold">Int'l Conference</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Anomaly Detection using Graph Neural Networks</strong>
+            <div style="font-size:11.5px;color:#666;">Guest Lecture &mdash; invited as domain expert, 2022</div>
+          </td>
+          <td>NIT Puducherry</td>
+          <td><span class="pill pill-green">Guest Lecture</span></td>
+        </tr>
+        <tr>
+          <td><strong>Creating &amp; Understanding DAGs in Airflow</strong></td>
+          <td>HCU Workshop &mdash; Hyderabad Central University</td>
+          <td><span class="pill pill-blue">Workshop</span></td>
+        </tr>
+        <tr>
+          <td><strong>Integrating AI in Education</strong></td>
+          <td>Meru International School, Tellapur, Hyderabad</td>
+          <td><span class="pill pill-red">School Talk</span></td>
+        </tr>
+        <tr>
+          <td><strong>Jury Member &mdash; National Level Seminar</strong></td>
+          <td>SCERT, Government of Telangana</td>
+          <td><span class="pill pill-green">Jury</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── AWARDS ── -->
+<div id="awards" class="section section-alt">
+  <div class="container">
+    <span class="section-label">Recognition</span>
+    <h2 class="section-heading">Awards &amp; Recognition</h2>
+    <div class="award-row">
+      <img src="award.jpeg" alt="Anurag University Star Award — Fitness Enthusiast" class="award-img"
+           onclick="openLightbox('award.jpeg','Anurag University Star Award — Fitness Enthusiast')"
+           onerror="this.style.display='none'"/>
+      <div class="cred-card gold" style="border-radius:0;border-left:none;border:none;background:#fffbeb;padding:32px 28px;display:flex;flex-direction:column;justify-content:center;">
+        <div class="cred-label">Anurag University &mdash; Star Awards</div>
+        <div class="cred-title" style="font-size:17px;margin-bottom:8px;">Fitness Enthusiast Award</div>
+        <div class="cred-sub" style="font-size:13.5px;line-height:1.75;">Recognised at the Anurag University Star Awards ceremony — reflecting holistic commitment to the university community beyond academic responsibilities.</div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="pill pill-red">&#127942; Anurag University</span>
+          <span class="pill pill-green">&#128170; Fitness &amp; Wellbeing</span>
+          <span class="pill pill-gold">&#11088; Star Award</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RED CTA — SUMMARY FOR VC ── -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-label">Research Profile Summary</div>
+    <h2 class="cta-heading">Research That Builds What's Next</h2>
+    <p class="cta-body">
+      <strong>Victor Daniel Gera</strong> is an active researcher at Anurag University, Hyderabad, having submitted his Ph.D. thesis at <strong>NITK Surathkal</strong>, with <strong>SERB Government of India</strong> funding (JRF &amp; SRF). His research focuses on <strong>Graph Neural Networks and Anomaly Detection</strong>, with <strong>4 publications, 39 citations, and an h-index of 4</strong>. His most recent solo-authored work — the <strong>GONO optimisation framework</strong> — is submitted to <strong>NeurIPS 2026</strong>, the premier machine learning conference worldwide. He is an invited resource person at <strong>NITs, Central Universities, and IIT FDPs</strong>, with 21 years of teaching experience — demonstrating that research output and institutional contribution go hand in hand.
+    </p>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <div>
+    <span class="f-brand">Victor Daniel Gera</span>
+    <span>Anurag University, Hyderabad &nbsp;|&nbsp; Dept. of Artificial Intelligence &nbsp;|&nbsp; Research Profile</span>
+  </div>
+  <div class="f-links">
+    <a href="mailto:victordanielai@anurag.edu.in">&#9993; victordanielai@anurag.edu.in</a>
+    <a href="https://github.com/victordaniel" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/victor-d-105ab28/" target="_blank">LinkedIn</a>
+    <a href="https://arxiv.org/abs/2605.06575" target="_blank">arXiv</a>
+  </div>
+  <div>Profile prepared: May 2026 &nbsp;&bull;&nbsp; Ctrl+P to print as PDF</div>
+</div>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox">
+  <span id="lb-close">&times;</span>
+  <img id="lb-img" src="" alt=""/>
+</div>
+
+<script>
+  /* 1 — Ticker: duplicate for seamless loop */
+  (function() {
+    var track = document.getElementById('tickerTrack');
+    if (track) track.innerHTML = track.innerHTML + track.innerHTML;
+  })();
+
+  /* 2 — Lightbox */
+  function openLightbox(src, alt) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lb-img').alt = alt || '';
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.getElementById('lb-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lb-close').onclick = closeLightbox;
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  /* 3 — Animated stats counter (scroll-triggered) */
+  (function() {
+    var counters = document.querySelectorAll('.s-num[data-target]');
+    var animated = false;
+    function animateCounters() {
+      if (animated) return;
+      animated = true;
+      counters.forEach(function(el) {
+        var target   = parseInt(el.getAttribute('data-target'), 10);
+        var suffix   = el.getAttribute('data-suffix') || '';
+        var duration = 1800;
+        var start    = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    var strip = document.getElementById('stats');
+    if (strip && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) animateCounters();
+      }, { threshold: 0.3 }).observe(strip);
+    } else { animateCounters(); }
+  })();
+
+  /* 4 — Active nav link on scroll */
+  (function() {
+    var ids   = ['about','research','publications','talks','awards'];
+    var links = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY + 120;
+      var active = 0;
+      ids.forEach(function(id, i) {
+        var el = document.getElementById(id);
+        if (el && el.offsetTop <= y) active = i;
+      });
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (links[active]) links[active].classList.add('active');
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>
