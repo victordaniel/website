@@ -613,7 +613,7 @@
       <span class="ticker-sep">&#9679;</span>
       <span class="ticker-item">SERB Govt. of India &mdash; Funded Researcher (JRF &amp; SRF)</span>
       <span class="ticker-sep">&#9679;</span>
-      <span class="ticker-item">39 Total Citations &nbsp;&bull;&nbsp; h-index: 4</span>
+      <span class="ticker-item">400+ LaTeX Presentations since 2019</span>
       <span class="ticker-sep">&#9679;</span>
       <span class="ticker-item">4 Peer-Reviewed Publications &nbsp;&bull;&nbsp; 104 GitHub Repositories</span>
       <span class="ticker-sep">&#9679;</span>
@@ -754,8 +754,8 @@
 <div class="stats-strip" id="stats">
   <div class="stats-strip-inner">
     <div class="stat-block">
-      <div class="s-num" data-target="39" data-suffix="">0</div>
-      <div class="s-label">Total Citations</div>
+      <div class="s-num" data-target="400" data-suffix="+">0</div>
+      <div class="s-label">LaTeX Presentations</div>
     </div>
     <div class="stat-block">
       <div class="s-num" data-target="4" data-suffix="">0</div>
@@ -1001,7 +1001,7 @@
       </div>
 
     </div>
-    <p style="font-size:12px;color:#999;margin-top:16px;">Source: <a href="https://www.mdpi.com/2079-9292/12/6/1501" target="_blank" style="color:#BE1E2D;">Google Scholar Profile &#8599;</a> &nbsp;&mdash;&nbsp; Total Citations: 39 &nbsp;|&nbsp; h-index: 4</p>
+    <p style="font-size:12px;color:#999;margin-top:16px;">Source: <a href="https://www.mdpi.com/2079-9292/12/6/1501" target="_blank" style="color:#BE1E2D;">Google Scholar Profile &#8599;</a> </p>
   </div>
 </div>
 
@@ -1129,7 +1129,7 @@
     <div class="cta-label">Research Profile Summary</div>
     <h2 class="cta-heading">Research That Builds What's Next</h2>
     <p class="cta-body">
-      <strong>Victor Daniel Gera</strong> is an active researcher at Anurag University, Hyderabad, having submitted his Ph.D. thesis at <strong>NITK Surathkal</strong>, with <strong>SERB Government of India</strong> funding (JRF &amp; SRF). His research focuses on <strong>Graph Neural Networks and Anomaly Detection</strong>, with <strong>4 publications, 39 citations, and an h-index of 4</strong>. His most recent solo-authored work — the <strong>GONO optimisation framework</strong> — is submitted to <strong>NeurIPS 2026</strong>, the premier machine learning conference worldwide. He is an invited resource person at <strong>NITs, Central Universities, and IIT FDPs</strong>, with 21 years of teaching experience — demonstrating that research output and institutional contribution go hand in hand.
+      <strong>Victor Daniel Gera</strong> is an active researcher at Anurag University, Hyderabad, having submitted his Ph.D. thesis at <strong>NITK Surathkal</strong>, with <strong>SERB Government of India</strong> funding (JRF &amp; SRF). His research focuses on <strong>Graph Neural Networks and Anomaly Detection</strong>, with <strong>4 peer-reviewed publications and 400+ LaTeX presentations since 2019</strong>. His most recent solo-authored work — the <strong>GONO optimisation framework</strong> — is submitted to <strong>NeurIPS 2026</strong>, the premier machine learning conference worldwide. He is an invited resource person at <strong>NITs, Central Universities, and IIT FDPs</strong>, with 21 years of teaching experience — demonstrating that research output and institutional contribution go hand in hand.
     </p>
   </div>
 </div>
@@ -1182,35 +1182,45 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  /* 3 — Animated stats counter (scroll-triggered) */
+  /* 3 — Animated stats counter (scroll-triggered, count-up) */
   (function() {
     var counters = document.querySelectorAll('.s-num[data-target]');
     var animated = false;
+
     function animateCounters() {
       if (animated) return;
       animated = true;
       counters.forEach(function(el) {
         var target   = parseInt(el.getAttribute('data-target'), 10);
         var suffix   = el.getAttribute('data-suffix') || '';
-        var duration = 1800;
+        var duration = 2200;
         var start    = null;
+        el.textContent = '0' + suffix;
         function step(ts) {
           if (!start) start = ts;
           var p = Math.min((ts - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.floor(eased * target) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-          else el.textContent = target + suffix;
+          /* ease-out expo for dramatic finish */
+          var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+          var current = Math.floor(eased * target);
+          el.textContent = current + suffix;
+          if (p < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target + suffix;
+          }
         }
         requestAnimationFrame(step);
       });
     }
+
     var strip = document.getElementById('stats');
     if (strip && 'IntersectionObserver' in window) {
       new IntersectionObserver(function(entries) {
         if (entries[0].isIntersecting) animateCounters();
-      }, { threshold: 0.3 }).observe(strip);
-    } else { animateCounters(); }
+      }, { threshold: 0.25 }).observe(strip);
+    } else {
+      animateCounters();
+    }
   })();
 
   /* 4 — Active nav link on scroll */
