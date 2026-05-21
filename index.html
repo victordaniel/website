@@ -1,244 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VictorDaniel | Tech Speaker & Innovator</title>
-    <meta name="description" content="Professional portfolio and tech talks.">
+    <title>Victor Daniel | Under Construction</title>
+    <meta name="description" content="Victor Daniel's professional website is undergoing exciting upgrades. Check back soon!">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.4);
+            --secondary: #06b6d4;
+            --secondary-glow: rgba(6, 182, 212, 0.4);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background Blobs */
+        .glowing-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            opacity: 0.5;
+            animation: float-blobs 12s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            top: -10%;
+            left: -10%;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+            bottom: -15%;
+            right: -10%;
+            animation-delay: -6s;
+        }
+
+        @keyframes float-blobs {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(50px, 30px) scale(1.1);
+            }
+        }
+
+        /* Container & Glassmorphism Card */
+        .container {
+            width: 90%;
+            max-width: 650px;
+            z-index: 10;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: card-appear 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes card-appear {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Branding/Logo */
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 2.5rem;
+            display: inline-block;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Under Construction Graphic */
+        .graphic-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+        }
+
+        .spinner-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            border-top-color: var(--secondary);
+            border-bottom-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 3s linear infinite;
+        }
+
+        .spinner-ring-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 3px solid transparent;
+            border-left-color: var(--primary);
+            border-right-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin-reverse 2s linear infinite;
+        }
+
+        .graphic-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            color: var(--text-main);
+            animation: pulse-icon 2s infinite ease-in-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, #d1d5db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sleek Status / Progress Indicator */
+        .progress-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            border-radius: 10px;
+            position: relative;
+            animation: pulse-progress 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-progress {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Connect Section */
+        .connect-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Media Queries */
+        @media (max-width: 600px) {
+            .card {
+                padding: 2.5rem 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header class="glass-nav">
-        <div class="nav-container">
-            <div class="logo">Victor<span>Daniel</span></div>
-            <nav id="main-nav">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#talks">Talks</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero section-spacing">
-            <div class="hero-bg" style="background: linear-gradient(to bottom, rgba(11, 12, 16, 0.4), rgba(11, 12, 16, 0.95)), url('assets/banner2.jpg') center/cover no-repeat;">
-            </div>
-            <div class="hero-content">
-                <h1 class="reveal-text">Inspiring the Next Generation of Tech</h1>
-                <p class="reveal-text delay-1">Delivering impactful talks on AI, Development, and Future Tech.</p>
-                <a href="#talks" class="cta-button reveal-text delay-2">Explore My Talks</a>
-            </div>
-        </section>
+    <!-- Background Blobs -->
+    <div class="glowing-blob blob-1"></div>
+    <div class="glowing-blob blob-2"></div>
 
-        <section id="about" class="about section-spacing constrain-width">
-            <div class="glass-card fade-in">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <p>I am a passionate technologist and speaker, dedicated to bridging the gap between cutting-edge
-                        ideas and practical execution. With years of experience on stage, I transform complex
-                        engineering concepts into inspiring, accessible narratives for developers and industry leaders
-                        alike.</p>
-                    <div class="video-wrapper about-video fade-in">
-                        <iframe
-                            src="https://www.youtube.com/embed/SacKhxobfUg"
-                            title="G Victor Daniel – Hugging Face Session"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Keynotes</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>10k+</h3>
-                            <p>Attendees</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>15</h3>
-                            <p>Countries</p>
-                        </div>
-                    </div>
-                <div class="topics-grid">
-                    <div class="topic-card fade-in">
-                        <i class="fas fa-brain"></i>
-                        <h3>Artificial Intelligence</h3>
-                        <p>Modern AI architectures, LLMs, and practical implementation for businesses.</p>
-                    </div>
-                    <div class="topic-card fade-in">
-                        <i class="fas fa-layer-group"></i>
-                        <h3>System Architecture</h3>
-                        <p>Building resilient, scalable, and high-performance distributed systems.</p>
-                    </div>
-                    <div class="topic-card fade-in">
-                        <i class="fas fa-users-gear"></i>
-                        <h3>Developer Relations</h3>
-                        <p>Scaling technical communities and bridging the gap between dev and product.</p>
-                    </div>
-                    <div class="topic-card fade-in">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Future Tech</h3>
-                        <p>Exploring the impact of Edge Computing and the next generation of the Web.</p>
-                    </div>
+    <div class="container">
+        <div class="card">
+            <!-- Branding -->
+            <div class="logo">
+                Victor<span>Daniel</span>
+            </div>
+
+            <!-- Graphic -->
+            <div class="graphic-container">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring-inner"></div>
+                <div class="graphic-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                 </div>
+            </div>
+
+            <!-- Main Heading -->
+            <h1>Upgrading the Experience</h1>
+            
+            <!-- Description -->
+            <p class="subtitle">
+                My professional portfolio is currently undergoing exciting upgrades to better showcase my latest talks, AI integrations, and developer innovations. Check back soon!
+            </p>
+
+            <!-- Progress Box -->
+            <div class="progress-box">
+                <div class="progress-label">
+                    <span>Renovations in Progress</span>
+                    <span>65%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Connect -->
+            <div class="connect-title">Stay Connected</div>
+            <div class="social-links">
+                <a href="https://github.com/victordaniel" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:victordaniel.gera@gmail.com" class="social-btn" title="Email" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.youtube.com/embed/SacKhxobfUg" target="_blank" class="social-btn" title="YouTube Profile" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
-        <section id="talks" class="talks-section section-spacing">
-            <div class="constrain-width title-container fade-in">
-                <h2>Featured Talks</h2>
-                <p>A showcase of some of my most impactful presentations around the globe.</p>
-            </div>
-
-            <div class="marquee-container fade-in delay-1">
-                <div class="marquee" id="marquee">
-                    <!-- Carousel items -->
-                    <div class="talk-card">
-                        <img src="assets/banner.jpeg?v=1.1" alt="Tech Innovators Workshop">
-                        <div class="talk-info">
-                            <h3>Scaling Modern Applications</h3>
-                            <p>Tech Innovators Workshop</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/2.jpeg?v=1.1" alt="Global AI Summit">
-                        <div class="talk-info">
-                            <h3>AI Bootcamp: Neural Networks</h3>
-                            <p>Global AI Summit</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/4.jpeg?v=1.1" alt="DevConf 2024">
-                        <div class="talk-info">
-                            <h3>The Next Decade of Tech</h3>
-                            <p>DevConf 2024</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/1.jpeg?v=1.1" alt="Excellence in Engineering">
-                        <div class="talk-info">
-                            <h3>Leading with Innovation</h3>
-                            <p>Engineering Excellence Awards</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/6.jpeg?v=1.1" alt="Software Architecture Conference">
-                        <div class="talk-info">
-                            <h3>Mastering Distributed Systems</h3>
-                            <p>Architecture Conf</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/Session@nitpy.jpg?v=1.1" alt="NIT Guest Lecture">
-                        <div class="talk-info">
-                            <h3>Cloud Computing Architectures</h3>
-                            <p>NIT Guest Lecture Series</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/github.jpeg" alt="GitHub Campus Event">
-                        <div class="talk-info">
-                            <h3>Open Source & Developer Culture</h3>
-                            <p>GitHub Campus Event</p>
-                        </div>
-                    </div>
-                    <div class="talk-card">
-                        <img src="assets/hcu.jpeg" alt="HCU Workshop">
-                        <div class="talk-info">
-                            <h3>Creating & Understanding DAGs in Airflow</h3>
-                            <p>HCU Workshop</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<section id="testimonials" class="testimonials section-spacing constrain-width">
-            <div class="title-container fade-in">
-                <h2>Praise from the Tech Community</h2>
-                <p>Real feedback from event organizers, CTOs, and global tech leaders who have seen Victor Daniel's work in action.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="glass-card testimonial-card fade-in">
-                    <p>"Victor's talk on AI Architecture was the single best presentation of the entire summit. He makes the future feel accessible today."</p>
-                    <div class="testimonial-author">
-                        <h4>A.J. Sterling</h4>
-                        <p>VP Engineering, CloudScale Systems</p>
-                    </div>
-                </div>
-                <div class="glass-card testimonial-card fade-in delay-1">
-                    <p>"A visionary when it comes to system scalability. He understands not just where the tech is, but where it's going next."</p>
-                    <div class="testimonial-author">
-                        <h4>Dr. Elena Thorne</h4>
-                        <p>Director of Innovation, NexGen Tech</p>
-                    </div>
-                </div>
-                <div class="glass-card testimonial-card fade-in delay-2">
-                    <p>"I've never seen someone explain distributed architecture with such passion and clarity. Truly a world-class speaker."</p>
-                    <div class="testimonial-author">
-                        <h4>Marcus V. Rodriguez</h4>
-                        <p>CTO, OpenGlobal Dev</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section-spacing constrain-width">
-            <div class="glass-card fade-in">
-                <h2>Let's Connect</h2>
-                <p>Interested in having me speak at your next event? Reach out below.</p>
-                <div data-fs-success class="form-success" style="display:none;">
-                    <p>Thanks! Your message has been sent. I'll get back to you soon.</p>
-                </div>
-                <div data-fs-error class="form-error" style="display:none;"></div>
-
-                <form id="contact-form" class="contact-form">
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="Name" required data-fs-field>
-                        <span data-fs-error="name" class="field-error"></span>
-                        <input type="email" name="email" placeholder="Email" required data-fs-field>
-                        <span data-fs-error="email" class="field-error"></span>
-                    </div>
-                    <textarea name="message" placeholder="Message" rows="5" required data-fs-field></textarea>
-                    <span data-fs-error="message" class="field-error"></span>
-                    <button type="submit" class="cta-button primary" data-fs-submit-btn>Send Message</button>
-                </form>
-
-                <script>
-                    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-                    formspree('initForm', { formElement: '#contact-form', formId: 'xreoawrj' });
-                </script>
-                <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 VictorDaniel. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/victor-d-105ab28/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/victordaniel" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
-
 </html>
